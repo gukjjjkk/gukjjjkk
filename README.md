@@ -2,7 +2,7 @@
 - 👀 I’m interested in Coding and programming
 - 🌱 I’m currently learning Python 
 - 💞️ I’m looking to collaborate on ...
-- 📫 How to reach me gusouzaleal@gmail.com
+- 📫 How to reach me gusouzaleal2016@gmail.com
 - 😄 Pronouns: he/him
 - ⚡ Fun fact: 
 
