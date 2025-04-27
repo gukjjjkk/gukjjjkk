@@ -1,35 +1,38 @@
-<!DOCTYPE HTML>
+<!DOCTYPE html>
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <title>Bob Esponja</title>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
-            body {
+        /* General Styles */
+        body {
             margin: 0;
             font-family: 'Poppins', Arial, sans-serif;
             scroll-behavior: smooth;
-            background-color: #f9f9f9;
-            color: #333; 
+            background-color: #f9f9f9; /* Light background for a clean look */
+            color: #333; /* Dark gray text for readability */
         }
 
+        /* Header Styles */
         h1 {
-            color: #FFD700;
-            font-size: 48px;
-            margin: 20px 0;
+            color: #FFD700; /* Golden color for the title */
+            font-size: 96px;
+            margin: 0;
             text-align: center;
             font-family: 'Poppins', sans-serif;
             font-weight: 700;
-            position: relative;
-            background-color: #f9f9f9;
+            width: 100%;
+            background-color: #ffffff;
             background-image: url('https://media.tenor.com/AZELRNyeNtkAAAAi/bacot.gif');
-            background-size: 50%;
-            background-repeat: no-repeat;
+            background-size: cover; /* Ajusta a imagem para cobrir todo o espaço */
+            background-repeat: no-repeat; /*Impede aquele erro de várias imagens*/
             background-position: center;
-            padding: 20px;
-            border-radius: 20px;
+            padding: 150px 0; /* Ajusta o espaço interno do título */
+            border-bottom: 2px solid #ffd700;
         }
 
+        /* Navigation Menu */
         .dropdown {
             display: flex;
             justify-content: center;
@@ -37,7 +40,7 @@
             background-color: #fff;
             padding: 15px 0;
             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-            position: sticky;
+            position: sticky; /* Mantém o menu fixo no topo */
             top: 0;
             z-index: 1000;
         }
@@ -57,6 +60,7 @@
             color: #fff;
         }
 
+        /* Section Styles */
         .section {
             padding: 50px;
             margin: 20px auto;
@@ -64,7 +68,22 @@
             background-color: #fff;
             border-radius: 10px;
             box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            opacity: 0;
+            transform: translateX(0);
+            transition: transform 0.5s ease, opacity 0.5s ease;
+        }
+
+        .section.left {
+            transform: translateX(-100%);
+        }
+
+        .section.right {
+            transform: translateX(100%);
+        }
+
+        .section.visible {
+            opacity: 1;
+            transform: translateX(0);
         }
 
         .section:hover {
@@ -94,107 +113,29 @@
             font-weight: bold;
         }
 
-        /* Espaço para fotos ao passar o cursor */
-        .section ul li:hover::after {
-            content: '';
-            display: block;
-            width: 100%;
-            height: 200px;
-            margin-top: 10px;
-            background-size: cover;
-            background-position: center;
-            border-radius: 10px;
-            transition: opacity 0.3s ease;
-            opacity: 1;
-        }
-
-        /* Imagens específicas para cada item */
-        .section ul li:nth-child(1):hover::after {
-            background-image: url('https://media.revistagq.com/photos/5ca5f6a77a3aec0df5496c59/master/w_1600%2Cc_limit/bob_esponja_9564.png1');
-            height: 600px;
-            transition: opacity 0.3s ease
-        }
-
-        .section ul li:nth-child(2):hover::after {
-            background-image: url('https://thumbs.dreamstime.com/b/esponja-amarilla-23694504.jpg');
-            height: 450px;
-        }
-
-        .section ul li:nth-child(3):hover::after {
-            background-image: url('https://pbs.twimg.com/media/E2_OKTzUcAED7QT.jpg');
-        }
-
-        .section ul li:nth-child(1):hover::after,
-        .section ul li:nth-child(2):hover::after,
-        .section ul li:nth-child(3):hover::after {
-            opacity: 1;
-        }
-
-        /* Espaço para fotos ao passar o cursor (apenas para Personagens) */
-        #section3 ul li:hover::after {
-            content: '';
-            display: block;
-            width: 100%;
-            height: 200px;
-            margin-top: 10px;
-            background-size: cover;
-            background-position: center;
-            border-radius: 10px;
-            transition: opacity 0.3s ease;
-            opacity: 1;
-        }
-
-        /* Imagens específicas para cada item (apenas para Personagens) */
-        #section3 ul li:nth-child(1):hover::after {
-            background-image: url('https://i.makeagif.com/media/7-15-2015/iZnVtA.gif');
-            height: 500px;
-            transition: opacity 0.3s ease
-        }
-
-        #section3 ul li:nth-child(2):hover::after {
-            background-image: url('https://via.placeholder.com/600x200?text=Personagem+2');
-        }
-
-        #section3 ul li:nth-child(3):hover::after {
-            background-image: url('https://via.placeholder.com/600x200?text=Personagem+3');
-        }
-
-        .community {
+        .button-container {
             text-align: center;
-            padding: 50px;
+            margin-top: 20px;
+        }
+
+        .button-container button {
             background-color: #FFD700;
-            color: #fff;
-            border-radius: 10px;
-            margin: 20px auto;
-            max-width: 800px;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-        }
-
-        .community h2 {
-            font-size: 32px;
-            margin-bottom: 20px;
-        }
-
-        .community p {
-            font-size: 18px;
-            margin-bottom: 20px;
-        }
-
-        .community a {
-            text-decoration: none;
             color: #333;
+            font-size: 16px;
             font-weight: bold;
-            background-color: #fff;
             padding: 10px 20px;
+            border: none;
             border-radius: 5px;
+            cursor: pointer;
             transition: background-color 0.3s ease, color 0.3s ease;
         }
 
-        .community a:hover {
+        .button-container button:hover {
             background-color: #333;
             color: #FFD700;
         }
 
+        /* Footer Styles */
         footer {
             text-align: center;
             padding: 20px;
@@ -219,24 +160,30 @@
         <a href="#section1">Quem é Bob Esponja?</a>
         <a href="#section2">Curiosidades</a>
         <a href="#section3">Personagens</a>
-        <a href="https://example.com/krusty-krab">Krusty Krab</a>
+        <a href="#section4">Krusty Krab</a>
     </div>
 
-    <div class="section" id="section1">
+    <div class="section left" id="section1">
         <h2>Quem é Bob Esponja?</h2>
         <p>Bob Esponja é uma esponja do mar que vive na Fenda do Biquíni e trabalha como cozinheiro no Siri Cascudo.</p>
+        <div class="button-container">
+            <button onclick="alert('Bob Esponja é o melhor cozinheiro do Siri Cascudo!')">Saiba Mais</button>
+        </div>
     </div>
 
-    <div class="section" id="section2">
+    <div class="section right" id="section2">
         <h2>Curiosidades:</h2>
         <ul>
             <li>Bob Esponja foi criado por Stephen Hillenburg, um biólogo marinho.</li>
             <li>O personagem foi inspirado em uma esponja de cozinha.</li>
             <li>Bob Esponja adora caçar águas-vivas com seu melhor amigo, Patrick.</li>
         </ul>
+        <div class="button-container">
+            <button onclick="window.location.href='https://wikiesponja.fandom.com/pt-br/wiki/Bob_Esponja'">Leia Mais</button>
+        </div>
     </div>
 
-    <div class="section" id="section3">
+    <div class="section left" id="section3">
         <h2>Personagens:</h2>
         <ul>
             <li>Patrick Estrela - Melhor amigo de Bob Esponja.</li>
@@ -245,16 +192,116 @@
         </ul>
         <a href="https://example.com/fenda-do-biquíni">Saiba mais sobre a Fenda do Biquíni</a>
         <img src="https://via.placeholder.com/600x400?text=Bob+Esponja+e+Patrick" alt="Bob Esponja e Patrick" style="width: 100%; border-radius: 10px; margin-top: 20px;">
+        <div class="button-container">
+            <button onclick="window.location.href='https://wikiesponja.fandom.com/pt-br/wiki/Personagens'">Conheça Todos</button>
+        </div>
     </div>
 
-    <div class="community">
-        <h2>Descubra Nossa Comunidade</h2>
-        <p>Junte-se à nossa comunidade e explore mais sobre o mundo de Bob Esponja!</p>
-        <a href="https://example.com/community">Saiba Mais</a>
+    <div class="section" id="krusty-krab">
+        <h2>Krusty Krab</h2>
+        <div style="display: flex; flex-wrap: wrap; gap: 20px;">
+            <!-- Lado esquerdo -->
+            <div style="flex: 1; min-width: 300px;">
+                <h3>Sobre o Krusty Krab</h3>
+                <p>O Krusty Krab é o famoso restaurante da Fenda do Biquíni, conhecido por seus deliciosos hambúrgueres de siri.</p>
+                <p>O restaurante é administrado pelo Sr. Siriguejo, que é obcecado por dinheiro, e Bob Esponja é o cozinheiro principal.</p>
+            </div>
+            <!-- Lado direito -->
+            <div style="flex: 1; min-width: 300px;">
+                <h3>Curiosidades</h3>
+                <ul>
+                    <li>O hambúrguer de siri é o prato mais famoso do restaurante.</li>
+                    <li>Lula Molusco trabalha como caixa, mas odeia seu emprego.</li>
+                    <li>O Krusty Krab é frequentemente alvo de tentativas de roubo da receita secreta pelo Plankton.</li>
+                </ul>
+            </div>
+        </div>
+        <img src="https://via.placeholder.com/800x400?text=Krusty+Krab" alt="Krusty Krab" style="width: 100%; border-radius: 10px; margin-top: 20px;">
     </div>
 
     <footer>
-        <p>© 2025 Bob Esponja - Todos os direitos reservados. <a href="https://example.com">Política de Privacidade</a></p>
+        <p>© 2025 - Todos os direitos reservados.</p>
+        <a href="/politica-de-privacidade">Política de Privacidade</a>
     </footer>
+
+    <script>
+        // Animação ao rolar a página
+        const sections = document.querySelectorAll('.section');
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, { threshold: 0.1 });
+
+        sections.forEach(section => {
+            observer.observe(section);
+        });
+
+        // Interatividade com botões
+        document.querySelectorAll('.button-container button').forEach(button => {
+            button.addEventListener('click', () => {
+                console.log('Botão clicado!');
+            });
+        });
+
+        const animatedButton = document.createElement('button');
+        animatedButton.textContent = 'Clique-me!';
+        animatedButton.style.padding = '10px 20px';
+        animatedButton.style.backgroundColor = '#FFD700';
+        animatedButton.style.border = 'none';
+        animatedButton.style.borderRadius = '5px';
+        animatedButton.style.cursor = 'pointer';
+        animatedButton.style.margin = '20px auto';
+        animatedButton.style.display = 'block';
+
+        document.body.appendChild(animatedButton);
+
+        animatedButton.addEventListener('click', () => {
+            animatedButton.style.transform = 'scale(1.2)';
+            setTimeout(() => {
+                animatedButton.style.transform = 'scale(1)';
+            }, 200);
+        });
+
+        const searchContainer = document.createElement('div');
+searchContainer.style.textAlign = 'center';
+searchContainer.style.margin = '20px';
+
+const searchInput = document.createElement('input');
+searchInput.type = 'text';
+searchInput.placeholder = 'Pesquisar...';
+searchInput.style.padding = '10px';
+searchInput.style.width = '300px';
+searchInput.style.border = '1px solid #ccc';
+searchInput.style.borderRadius = '5px';
+
+const searchButton = document.createElement('button');
+searchButton.textContent = 'Pesquisar';
+searchButton.style.marginLeft = '10px';
+searchButton.style.padding = '10px 20px';
+searchButton.style.backgroundColor = '#FFD700';
+searchButton.style.border = 'none';
+searchButton.style.borderRadius = '5px';
+searchButton.style.cursor = 'pointer';
+
+searchContainer.appendChild(searchInput);
+searchContainer.appendChild(searchButton);
+document.body.insertBefore(searchContainer, document.body.firstChild);
+
+searchButton.addEventListener('click', () => {
+    const query = searchInput.value.toLowerCase();
+    const sections = document.querySelectorAll('.section');
+    sections.forEach(section => {
+        if (section.textContent.toLowerCase().includes(query)) {
+            section.style.backgroundColor = '#FFFF99'; // Destaque
+        } else {
+            section.style.backgroundColor = ''; // Remove destaque
+        }
+    });
+});
+    </script>
 </body>
 </html>
