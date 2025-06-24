@@ -6,11 +6,11 @@ As an information management student, I aim to obtain maximum knowledge to compr
 <img src="https://github-readme-streak-stats.herokuapp.com/?user=gukjjjkk&theme=dark&count_private=true&bg_color=0d1116&title_color=ce09ec&text_color=a4aacb"> <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=gukjjjkk&layout=compact&theme=dark">
 
 ## Experience 💼
-I have a strong foundation in web development, particularly with React.js and Node.js, where I've been focusing in building user-focused applications. My expertise extends to database using MySQL, with relational tables, aiming to be an expert at data analysis.
+I have a strong foundation in web development, particularly with React.js and Node.js, where I've been focusing on building user-focused applications. My expertise extends to database use with MySQL with relational tables, aiming to be an expert at data analysis.
 
 ## Projects 💻
 - **Fábrica de REA (Open Educational Resources) - Books and Tales**: [Repository Link](https://github.com/Fabrica-REA); <br>
-  This is a project for the books and tales repository site which is being developed using React.js, Node.js and MySQL.
+  This is a project for the books and tales repository site developed using React.js, Node.js and MySQL.
 
 ## Certifications 🎓
 - **EBAC - Introduction to Basic Programmation** <a target="_blank" href="https://lms.ebaconline.com.br/certs/validate/32328-55357-33244-45234">See Credential</a>;
